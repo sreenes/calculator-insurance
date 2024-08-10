@@ -1,0 +1,38 @@
+<html>
+<body>
+<!-- Insurance Calculator Form -->
+<form id="insurance-form">
+  <label for="age">Age:</label>
+  <input type="number" id="age" name="age"><br><br>
+  <label for="coverage-type">Coverage Type:</label>
+  <select id="coverage-type" name="coverage-type">
+    <option value="health">Health</option>
+    <option value="life">Life</option>
+    <option value="auto">Auto</option>
+  </select><br><br>
+  <label for="coverage-amount">Coverage Amount:</label>
+  <input type="number" id="coverage-amount" name="coverage-amount"><br><br>
+  <button id="calculate">Calculate Premium</button>
+</form>
+
+<!-- Calculator Functionality -->
+<script>
+  const form = document.getElementById('insurance-form');
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const age = document.getElementById('age').value;
+    const coverageType = document.getElementById('coverage-type').value;
+    const coverageAmount = document.getElementById('coverage-amount').value;
+    // Calculate premium based on user input
+    const premium = calculatePremium(age, coverageType, coverageAmount);
+    // Display results
+    document.getElementById('results').innerHTML = Premium: $${premium};
+  });
+
+  function calculatePremium(age, coverageType, coverageAmount) {
+    // Simple example calculation
+    return (age * coverageAmount * 0.1) + (coverageType === 'health' ? 100 : 50);
+  }
+</script>
+</body>
+</html>
